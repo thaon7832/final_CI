@@ -1,0 +1,52 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.thaoportfolio</groupId>
+    <artifactId>profile-site</artifactId>
+    <version>1.0.0</version>
+    <packaging>jar</packaging>
+
+    <name>Profile Static Website</name>
+    <description>Static website for profile.thaoportfolio.com</description>
+
+    <build>
+        <finalName>portfolio</finalName>
+        <resources>
+            <resource>
+                <directory>.</directory> <!-- Your project root -->
+                <includes>
+                    <include>index.html</include>
+                    <include>styles/**</include>
+                    <include>scripts/**</include>
+                    <include>images/**</include>
+                </includes>
+                <filtering>false</filtering>
+            </resource>
+        </resources>
+
+        <plugins>
+            <!-- Maven JAR Plugin to package the website -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                        </manifest>
+                        <manifestEntries>
+                            <Built-By>Jenkins</Built-By>
+                            <Website>https://profile.thaoportfolio.com</Website>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
